@@ -1,4 +1,4 @@
-# Lab Report 03
+# Lab Report 02
 **Course:** Database Management System Sessional (CSEC-322)<br />
 
 **Prepared By:**<br />
@@ -27,6 +27,12 @@ CREATE TABLE departments (
 	department_name VARCHAR(50)
 );
 
+CREATE TABLE products (
+	product_id INT PRIMARY KEY NOT NULL,
+	product_name VARCHAR(50),
+	category_id INT
+);
+
 CREATE TABLE customers (
 	customer_id INT PRIMARY KEY NOT NULL,
 	name VARCHAR(50)
@@ -38,48 +44,42 @@ CREATE TABLE orders (
 	amount INT,
 	FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
-
-CREATE TABLE products (
-	product_id INT PRIMARY KEY NOT NULL,
-	product_name VARCHAR(50),
-	category_id INT
-);
 ```
 
 ## Insert Sample Data
 ```sql
 INSERT INTO employees (employee_id, name, salary, department_id) VALUES
-(1, 'Alice Johnson', 55000, 1),
-(2, 'Bob Smith', 62000, 2),
-(3, 'Charlie Brown', 47000, 1),
-(4, 'Daisy White', 75000, 3),
-(5, 'Edward Green', 45000, 2);
+(1, 'Ashik Himel', 55000, 1),
+(2, 'Shimul Sheikh', 62000, 2),
+(3, 'Sakib Ahmed', 47000, 1),
+(4, 'Alamin Sheikh', 75000, 3),
+(5, 'Sabbir Ahmed', 45000, 2);
 
 INSERT INTO departments (department_id, department_name) VALUES
-(1, 'Human Resources'),
-(2, 'Engineering'),
-(3, 'Marketing');
-
-INSERT INTO customers (customer_id, name) VALUES
-(1, 'Alice Anderson'),
-(2, 'Bob Black'),
-(3, 'Carol White'),
-(4, 'David Brown'),
-(5, 'Eve Gray');
-
-INSERT INTO orders (order_id, customer_id, amount) VALUES
-(1, 1, 200),
-(2, 2, 150),
-(3, 3, 300),
-(4, 4, 500),
-(5, 5, 120);
+(1, 'Product Manager'),
+(2, 'Designer'),
+(3, 'Developer');
 
 INSERT INTO products (product_id, product_name, category_id) VALUES
-(1, 'Product A', 101),
-(2, 'Product B', 102),
-(3, 'Product C', 103),
-(4, 'Product D', 101),
-(5, 'Product E', 104);
+(1, 'eCommerce Project', 104),
+(2, 'Portfolio Project', 102),
+(3, 'ERP Project', 103),
+(4, 'Image Server Project', 101),
+(5, 'Video Server Project', 101);
+
+INSERT INTO customers (customer_id, name) VALUES
+(1, 'Abrar Shazid'),
+(2, 'Mahmud Rashid'),
+(3, 'Abdul Lotif'),
+(4, 'Nasim Mondol'),
+(5, 'Avijit Tirtho');
+
+INSERT INTO orders (order_id, customer_id, amount) VALUES
+(1, 1, 100000),
+(2, 2, 80000),
+(3, 3, 95000),
+(4, 4, 70000),
+(5, 5, 85000);
 ```
 
 ## Task 1: Using WHERE Clause Retrieve all employees with a salary greater than 50,000.
